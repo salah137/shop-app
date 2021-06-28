@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "255434817339",
+    "project_id": "social-shop-app",
+    "storage_bucket": "social-shop-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255434817339:android:900ed7690a4cb33014c11e",
+        "android_client_info": {
+          "package_name": "com.example.social_and_shop_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255434817339-qj0t205a5d77eqm48evue3805de2altd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.social_and_shop_app",
+            "certificate_hash": "1a42e19c91c2716b79a3ce17049aa1a663228ef5"
+          }
+        },
+        {
+          "client_id": "255434817339-rnu441n5f7tjtf9ijcgvqfkq330te7ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBInJ4-bnqo6ztkm8PI-1au2Uck7CsWu64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255434817339-rnu441n5f7tjtf9ijcgvqfkq330te7ib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
