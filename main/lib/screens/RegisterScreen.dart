@@ -1,6 +1,7 @@
 import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_and_shop_app/layouts/HomeLayout.dart';
 import 'package:social_and_shop_app/screens/LoginScreen.dart';
 import 'package:social_and_shop_app/shared/cubit/AppCubit.dart';
 import 'package:social_and_shop_app/shared/cubit/AppStates.dart';
@@ -62,7 +63,7 @@ class RegisterScreen extends StatelessWidget {
                             hintText: 'email',
                           ),
                           validator: (v) {
-                            if (!v!.contains("@")) {
+                            if (!(v!.contains("@") && v.contains(".com"))) {
                               return 'Entre The Right Form Of Emails';
                             } else if (v.isEmpty || v == null) {
                               return 'Return Your Email';
@@ -122,10 +123,19 @@ class RegisterScreen extends StatelessWidget {
                             child: MaterialButton(
                               onPressed: () {
                                 if (formkey.currentState!.validate())
-                                  cubit.signUp(
+                                  cubit
+                                      .signUp(
                                     email.text,
                                     password.text,
                                     username.text,
+                                  )
+                                      .then(
+                                    (value) {
+                                      Navigator.of(context).pushAndRemoveUntil(
+                                          MaterialPageRoute(
+                                              builder: (ctx) => HomePage()),
+                                          (route) => false);
+                                    },
                                   );
                               },
                               child: ConditionalBuilder(

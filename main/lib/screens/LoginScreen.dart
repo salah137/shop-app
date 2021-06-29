@@ -1,6 +1,7 @@
 import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_and_shop_app/layouts/HomeLayout.dart';
 import 'package:social_and_shop_app/screens/RegisterScreen.dart';
 import 'package:social_and_shop_app/shared/cubit/AppCubit.dart';
 import 'package:social_and_shop_app/shared/cubit/AppStates.dart';
@@ -60,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           style: TextStyle(color: Colors.white),
                           validator: (v) {
-                            if (!v!.contains("@")) {
+                            if (!(v!.contains("@") && v.contains(".com"))) {
                               return 'Entre The Right Form Of Emails';
                             } else if (v.isEmpty || v == null) {
                               return 'Return Your Email';
@@ -97,7 +98,14 @@ class LoginScreen extends StatelessWidget {
                             child: MaterialButton(
                               onPressed: () {
                                 if (formkey.currentState!.validate())
-                                  cubit.signIn(email.text, password.text);
+                                  cubit.signIn(email.text, password.text).then(
+                                    (value) {
+                                      Navigator.of(context).pushAndRemoveUntil(
+                                          MaterialPageRoute(
+                                              builder: (ctx) => HomePage()),
+                                          (route) => false);
+                                    },
+                                  );
                               },
                               child: ConditionalBuilder(
                                 condition: state is LoadingState,
