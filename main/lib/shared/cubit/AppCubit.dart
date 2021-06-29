@@ -57,7 +57,7 @@ class AppCubit extends Cubit<AppState> {
             .get()
             .then(
           (value) {
-            print(value.data()["user name"]);
+            UserModel user =  UserModel.fromJson(value.data());
           },
         );
       },
