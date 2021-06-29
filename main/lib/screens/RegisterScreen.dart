@@ -45,7 +45,7 @@ class RegisterScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Login',
+                          'Register',
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!
