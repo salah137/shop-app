@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                   width: double.infinity,
                   child: Image(
                     image: AssetImage(
-                      "assets\images\photo-1569180880150-df4eed93c90b.jpg",
+                      "assets\images\wp4788551.jpg",
                     ),
                     fit: BoxFit.cover,
                   ),
