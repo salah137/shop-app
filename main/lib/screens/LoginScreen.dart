@@ -8,13 +8,16 @@ import 'package:social_and_shop_app/shared/cubit/AppStates.dart';
 class LoginScreen extends StatelessWidget {
   TextEditingController email = new TextEditingController();
   TextEditingController password = new TextEditingController();
+  GlobalKey<FormState> formkey = new GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppState>(
       builder: (ctx, state) {
-        AppCubit cubit=  BlocProvider.of(ctx);
+        AppCubit cubit = BlocProvider.of(ctx);
         return Scaffold(
           body: Form(
+            key: formkey,
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -22,8 +25,8 @@ class LoginScreen extends StatelessWidget {
                   height: double.infinity,
                   width: double.infinity,
                   child: Image(
-                    image: AssetImage(
-                      "assets\images\wp4788551.jpg",
+                    image: NetworkImage(
+                      "https://images.unsplash.com/photo-1569180880150-df4eed93c90b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFya2V0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -32,9 +35,9 @@ class LoginScreen extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(20),
                     padding: EdgeInsets.all(20),
-                    height: 500,
+                    height: 550,
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.4),
+                        color: Colors.grey.withOpacity(0.8),
                         borderRadius: BorderRadius.circular(15)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -55,6 +58,7 @@ class LoginScreen extends StatelessWidget {
                             prefixIcon: Icon(Icons.email),
                             hintText: 'email',
                           ),
+                          style: TextStyle(color: Colors.white),
                           validator: (v) {
                             if (!v!.contains("@")) {
                               return 'Entre The Right Form Of Emails';
@@ -76,11 +80,13 @@ class LoginScreen extends StatelessWidget {
                           ),
                           validator: (v) {
                             if (v!.isEmpty || v == null) {
-                              return 'Return Your Email';
+                              return 'Return Your password';
                             }
                             return null;
                           },
                           obscureText: true,
+                          style: TextStyle(color: Colors.white),
+                          keyboardType: TextInputType.visiblePassword,
                         ),
                         SizedBox(
                           height: 40,
@@ -90,7 +96,8 @@ class LoginScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15),
                             child: MaterialButton(
                               onPressed: () {
-                                cubit.signIn(email.text, password.text);
+                                if (formkey.currentState!.validate())
+                                  cubit.signIn(email.text, password.text);
                               },
                               child: ConditionalBuilder(
                                 condition: state is LoadingState,
