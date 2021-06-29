@@ -28,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
                   width: double.infinity,
                   child: Image(
                     image: AssetImage(
-                      "assets/images/wp4788551.jpg",
+                      "assets\images\photo-1569180880150-df4eed93c90b.jpg",
                     ),
                     fit: BoxFit.cover,
                   ),
