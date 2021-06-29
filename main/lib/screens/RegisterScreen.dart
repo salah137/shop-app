@@ -85,7 +85,13 @@ class RegisterScreen extends StatelessWidget {
                           ),
                           validator: (v) {
                             if (v!.isEmpty || v == null) {
-                              return 'Return Your Password';
+                              return 'Geve Me Your Password';
+                            }
+                            if (v.length < 8) {
+                              return "Your Password is very short";
+                            }
+                            if (v.length > 15){
+                              return 'Your Password is very long';
                             }
                             return null;
                           },
@@ -105,7 +111,7 @@ class RegisterScreen extends StatelessWidget {
                           ),
                           validator: (v) {
                             if (v!.isEmpty || v == null) {
-                              return 'Return Your user Name';
+                              return 'Geve Me Your user Name';
                             }
                             return null;
                           },
