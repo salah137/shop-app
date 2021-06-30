@@ -2,7 +2,7 @@ import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_and_shop_app/layouts/HomeLayout.dart';
-import 'package:social_and_shop_app/screens/RegisterScreen.dart';
+import 'package:social_and_shop_app/screens/Sign Up and Sin In/RegisterScreen.dart';
 import 'package:social_and_shop_app/shared/cubit/AppCubit.dart';
 import 'package:social_and_shop_app/shared/cubit/AppStates.dart';
 
